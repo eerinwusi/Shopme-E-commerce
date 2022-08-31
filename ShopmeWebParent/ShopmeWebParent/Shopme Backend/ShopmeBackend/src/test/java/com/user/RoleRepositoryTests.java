@@ -12,10 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
 import java.util.List;
 
-//@SpringBootTest(classes = Role.class)
+@SpringBootTest(classes = Role.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Rollback(false)
+@Rollback(value = false)
 public class RoleRepositoryTests {
     @Autowired
     private RoleRepository roleRepository;
