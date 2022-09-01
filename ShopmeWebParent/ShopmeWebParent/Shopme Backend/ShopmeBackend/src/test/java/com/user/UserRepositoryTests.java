@@ -2,6 +2,7 @@ package com.user;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.InstanceOfAssertFactories.ITERABLE;
 
+import com.admin.ShopmeBackendApplication;
 import com.admin.user.UserRepository;
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
@@ -11,10 +12,12 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
 
-@DataJpaTest
+@ContextConfiguration(classes = ShopmeBackendApplication.class)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Rollback(value = false)
+@Rollback(false)
+@DataJpaTest
 public class UserRepositoryTests {
     @Autowired
     private UserRepository userRepository;
@@ -62,6 +65,7 @@ public class UserRepositoryTests {
         User userNam = userRepository.findById(1).get();
         System.out.println(userNam);
         assertThat(userNam).isNotNull();
+        System.out.println("Hello");
     }
 
     @Test

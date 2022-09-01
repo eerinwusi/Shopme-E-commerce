@@ -2,6 +2,7 @@ package com.user;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.admin.ShopmeBackendApplication;
 import com.admin.user.RoleRepository;
 import com.shopme.common.entity.Role;
 import org.junit.jupiter.api.Test;
@@ -10,12 +11,14 @@ import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabas
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.annotation.Rollback;
+import org.springframework.test.context.ContextConfiguration;
+
 import java.util.List;
 
-@SpringBootTest(classes = Role.class)
+@ContextConfiguration(classes = ShopmeBackendApplication.class)
 @DataJpaTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-@Rollback(value = false)
+@Rollback(false)
 public class RoleRepositoryTests {
     @Autowired
     private RoleRepository roleRepository;
