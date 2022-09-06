@@ -65,7 +65,7 @@ public class UserRepositoryTests {
         User userNam = userRepository.findById(1).get();
         System.out.println(userNam);
         assertThat(userNam).isNotNull();
-        System.out.println("Hello");
+//        System.out.println("Hello");
     }
 
     @Test

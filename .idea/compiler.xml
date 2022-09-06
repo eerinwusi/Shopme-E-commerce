@@ -16,7 +16,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="ShopmeBackend" options="-parameters --add-modules java.base" />
       <module name="ShopmeCommon" options="-parameters --add-modules java.base" />
-      <module name="ShopmeFrontend" options="-parameters" />
+      <module name="ShopmeFrontend" options="-parameters --add-modules java.base" />
     </option>
   </component>
 </project>
