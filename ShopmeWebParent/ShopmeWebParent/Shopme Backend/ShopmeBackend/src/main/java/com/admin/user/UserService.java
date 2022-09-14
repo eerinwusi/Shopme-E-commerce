@@ -3,10 +3,12 @@ package com.admin.user;
 import com.shopme.common.entity.Role;
 import com.shopme.common.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class UserService {
@@ -41,5 +43,14 @@ public class UserService {
         User userByEmail = userRepository.getUserByEmail(email);
 
         return userByEmail == null;
+    }
+
+    public User get(Integer id) throws UserNotFoundException {
+        try {
+            return userRepository.findById(id).get();
+        } catch (NoSuchElementException e) {
+            throw new UserNotFoundException("Could not find any user with ID " + id);
+        }
+
     }
 }
