@@ -91,7 +91,9 @@
                 <div class="form-group row">
                     <label class="col-sm-4 col-form-label">Password</label>
                     <div class="col-8">
-                        <input type="password" class="form-control" th:field="*{password}" required minlength="4" maxlength="45"/>
+                        <input th:if="${user.id == null}" type="password" class="form-control" th:field="*{password}" required minlength="4" maxlength="45"/>
+
+                        <input th:if="${user.id == null}" type="password" class="form-control" th:field="*{password}" minlength="4" maxlength="45"/>
                     </div>
                 </div>
 
